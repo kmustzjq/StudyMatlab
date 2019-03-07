@@ -1,0 +1,24 @@
+%选取输入变量x的取值范围
+x=-4:0.01:4;
+%输入目标函数
+y1=sin((1/2)*pi*x)+sin(pi*x);
+%隐含层的神经元数目范围
+s=9:16;
+%欧式距离
+res=1:8;
+for i=1:8
+    %%建立前向型BP神经网络，输入层和隐含层激励函数为tansig,输出层为purelin
+    %%建立函数trainlm，也是默认函数
+    net=newff(minmax(x),[1,s(i),1],{'tansig','tansig','purelin'},'trainlm');
+    %训练步数最大为200
+    net.trainParam.epochs=2000;
+    net.trainParam.goal=0.0001;
+    %对函数进行训练
+    net=train(net,x,y1);
+    y2=sim(net,x);
+    %求欧式距离，判定隐含层神经元个数及网络性能
+    err=y2-y1;
+    res(i)=norm(err);
+    figure
+    plot(x,y1,'r-',x,y2,'b--');
+end

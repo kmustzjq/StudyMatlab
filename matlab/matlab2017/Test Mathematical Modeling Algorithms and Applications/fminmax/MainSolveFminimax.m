@@ -1,0 +1,1 @@
+[x,y]=fminimax('FunSolveFminimax',rand(2,1))

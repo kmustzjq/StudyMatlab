@@ -1,0 +1,9 @@
+ant:
+<ant>
+  <mkdir dir="E:\daima\matlab\testjava\Demo\for_redistribution" />
+  <mkdir dir="E:\daima\matlab\testjava\Demo\for_testing" />
+</ant>
+mcc -W 'java:Demo,Class1' -T link:lib -d E:\daima\matlab\testjava\Demo\for_testing -v E:\daima\matlab\testjava\drawplot.m class{Class1:E:\daima\matlab\testjava\drawplot.m} 
+Test checkout of feature 'Compiler' failed.
+
+mcc Ê§°Ü¡£
